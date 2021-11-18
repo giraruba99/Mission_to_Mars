@@ -1,17 +1,17 @@
 # lets first import our dependancies
 
 from flask import Flask, render_template, redirect, url_for
-from flask_pymongo import PyMongo
-import scraping
+#from flask_pymongo import PyMongo
+#import scraping
 
 # next, we are setting our flask
 
-app = Flask(__nmae__)
+app = Flask(__name__)
 
 # use flask_pymongo to set up mongo connections
 
-app.config["MONGO_URL"] = "mongodb://localhost:27017/mars_app"
-mongo = PyMongo(app)
+app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_app"
+#mongo = PyMongo(app)
 
 # First, let's define the route for the HTML page. In our script, type the following:
 
