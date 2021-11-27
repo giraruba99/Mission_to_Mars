@@ -166,7 +166,7 @@ df.to_html()
 # #### Hemispheres
 
 # 1. Use browser to visit the URL 
-url = 'https://marshemispheres.com/'
+url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
 
 browser.visit(url)
 
@@ -187,7 +187,7 @@ for i in range(4):
     img_url = element['href']
     
     # get hemisphere title
-    title = browser.find_by_css("h2.title").text
+    title = browser.find_by_css("h3.title").text
     
     # get image url
     mars_hemispheres["img_url"] = img_url

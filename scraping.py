@@ -1,13 +1,13 @@
 
-# Import splinter and BeautifulSoup
+# Import splinter BeautifulSoup
 
-#from splinter import Browser
-#from bs4 import BeautifulSoup as soup
-#from webdriver_manager.chrome import ChromeDriverManager
+from splinter import Browser
+from bs4 import BeautifulSoup as soup
+from webdriver_manager.chrome import ChromeDriverManager
 import datetime as dt
 
 # also impord pandas that will help us scrape an entire table
-#import pandas as pd
+import pandas as pd
 
 def scrape_all():
     # Initiate headless driver for deployment
@@ -125,10 +125,10 @@ def mars_facts():
     
 
     # Convert dataframe into HTML format, add bootstrap
-    return df.to_html(classes="table table-striped")
+    return df.to_html()
 
 def hemisphere_images(browser):
-    url = 'https://marshemispheres.com/'
+    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
 
     browser.visit(url)
 
