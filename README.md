@@ -12,11 +12,16 @@ This project is intended to collect data about mission to Mars through web-scrap
 
    * A code that scrapes the 4 hemispheres of mars was written
    * A list of dictionary holding a title and image urls was retrieved
+   
+![Hemisphere Urls](https://user-images.githubusercontent.com/89214854/143787009-1a2d61b3-8ce8-405e-bb04-4503853bc17b.png)
 
 
    * A code that brings the comparison table for mars and earth is able to retreive the data
    
    * A code that creates a flask routes to the main page and to the scraping page was constructed
+
+![Mobile responsive](https://user-images.githubusercontent.com/89214854/143787031-717b6714-bf57-4910-a39d-63f0a2ff9921.png)
+
 
    * An HTML file is able to communicate to the MongoDB database, the flask route and able to display results on browser both on big screens and mobile devices
 
