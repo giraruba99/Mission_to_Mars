@@ -18,15 +18,17 @@ def scrape_all():
     
     
     news_title, news_paragraph = mars_news(browser)
-
+    #hemisphere_image_urls = hemisphere(browser)
+    df = mars_facts()
+    
     # Run all scraping functions and store results in a dictionary
     data = {
         "news_title": news_title,
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
-        "facts": mars_facts(),
+        #"hemispheres": hemisphere_image_urls,
+        "facts": df,
         "last_modified": dt.datetime.now(),
-        "mars_hemispheres": hemisphere_images(browser)
     }
 
     # Stop webdriver and return data
@@ -125,10 +127,11 @@ def mars_facts():
     
 
     # Convert dataframe into HTML format, add bootstrap
-    return df.to_html()
+    
+    return df.to_html(classes="table table-striped")
 
-def hemisphere_images(browser):
-    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+def hemisphere(browser):
+    url = 'https://marshemispheres.com'
 
     browser.visit(url)
 
@@ -138,26 +141,33 @@ def hemisphere_images(browser):
 
     # 3. Write code to retrieve the image urls and titles for each hemisphere.
     for i in range(4):
-        mars_hemispheres = {}
+        hemispheres = {}
 
-        # Get through all the loops to find the elemts (range = 4)
+        # Get through all the loops to find the elements
         browser.find_by_css('a.product-item h3')[i].click()
 
         # extract the source 'href'
         element = browser.links.find_by_text('Sample').first
         img_url = element['href']
+        
+        
+        #hemisphere["img_url"] = sample_img["href"]
 
         # get hemisphere title
         title = browser.find_by_css("h2.title").text
+    
+         # get image url
+        hemispheres["img_url"] = img_url
+        hemispheres["title"] = title
 
-        # get image url
-        mars_hemispheres["img_url"] = img_url
-        mars_hemispheres["title"] = title
 
         # Let's append the hemisphere objects our predetrmined list of dictionaries
-        hemisphere_image_urls.append(mars_hemispheres)
+        hemisphere_image_urls.append(hemispheres)
+        
         browser.back()
-
+                   
+   
+                   
     # 4. Print the list that holds the dictionary of each image url and title.
     hemisphere_image_urls
 
