@@ -27,6 +27,6 @@ This project is intended to collect data about mission to Mars through web-scrap
 
    # Conclusion
 
-   * In this important project, there are so many moving parts that neen to come together for out application to work.
+   * In this important project, there are so many moving parts that need to come together for out application to work, that makes this project very interesting.
    * We were able to scrape mars data from different sources and bring together the scraped data to display on our local host browser.
 
